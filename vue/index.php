@@ -9,7 +9,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="../node_modules/tailwindcss/dist/tailwind.min.css">
     <link rel="stylesheet" href="../assets/css/style.css">
     <title>Login</title>
 </head>
@@ -17,7 +18,7 @@
     <section class="form mb-5 mt-5" >
         <h1>INSCRIPTION</h1>
         <form action="../controllerd/inscription.php" method="POST">
-        <div class="mb-3">
+            <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">First Name</label>
                 <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="FirstName">
             </div>
@@ -142,8 +143,94 @@
 
 <h1>EXEMPLE TAILERWIND</h1>
 
+<section class="pl-10 pr-10 flex items-start space-x-40">
 
+    <div class="zone_form bg-grey p-10  rounded  shadow w-1/4 border-blue-800">
+        <h2 class="text-2xl  font-bold mb-10 text-purple-800">CREATE YOUR ACCOUNT</h2>
+        <form action="" method="">
+            <div class="mb-3">
+                <label class="block mb-2 font-bold text-gray-800" for="Fname">FIRST NAME</label>
+                <input class="w-full  border-2 border-gray-400 pb-2 pt-2 pl-5 rounded outline-none focus:border-blue-400" name="Fname" type="text">
+            </div>
+            <div class="mb-3">
+                <label class="block mb-2 font-bold text-gray-800" for="Fname">LAST NAME</label>
+                <input class="w-full  border-2 border-gray-400 pb-2 pt-2 pl-5 rounded outline-none focus:border-blue-400" name="Fname" type="text">
+            </div> 
+           <div class="mb-3">
+                <label class="block mb-2 font-bold text-gray-800" for="Fname">PHONE NUMBER</label>
+                <div class="flex items-center">
+                <select  id="number" class="border-2 border-gray-400 pb-2 pt-2 pl-2 rounded outline-none focus:border-blue-400  w-1/3">
+                    <option value="+212">+212</option>
+                    <option value="+33">+33</option>
+                    <option value="+88">+88</option>
+                    <option value="+66">+66</option>
+                </select>
+                <input class="w-full  border-2 border-gray-400 pb-2 pt-2 pl-5 rounded outline-none focus:border-blue-400" name="Fname" type="text">
+                </div>
+            </div> 
+           <div class="mb-3">
+                <label class="block mb-2 font-bold text-gray-800" for="Fname">EMAIL</label>
+                <input class="w-full  border-2 border-gray-400 pb-2 pt-2 pl-5 rounded outline-none focus:border-blue-400" name="Fname" type="text">
+            </div>
+            <div class="mb-3">
+                <label class="block mb-2 font-bold text-gray-800" for="Fname">PASSWORD</label>
+                <input class="w-full  border-2 border-gray-400 pb-2 pt-2 pl-5 rounded outline-none focus:border-blue-400" name="Fname" type="text">
+            </div>
+            <div class=" mb-3 flex items-center">
+                <input type="checkbox" id="agree">
+                <label for="agree" class="ml-2 text-gray-800 text-sm">I agree with all rules</label>
 
+            </div>
+            <button class="btn w-full bg-purple-600 py-4 rounded text-white font-semibold  hover:bg-white hover:text-purple-800  ">Sign up</button>
+            
+        </form>
+
+    </div>
+
+    <div class="zone_form bg-grey p-10  rounded  shadow w-1/4 border-blue-800">
+        <h2 class="text-2xl  font-bold mb-10 text-purple-800">LOGIN</h2>
+        <form action="" method="">
+           <div class="mb-3">
+                <label class="block mb-2 font-bold text-gray-800" for="Fname">EMAIL</label>
+                <input class="w-full  border-2 border-gray-400 pb-2 pt-2 pl-5 rounded outline-none focus:border-blue-400" name="Fname" type="text">
+            </div>
+            <div class="mb-3">
+                <label class="block mb-2 font-bold text-gray-800" for="Fname">PASSWORD</label>
+                <input class="w-full  border-2 border-gray-400 pb-2 pt-2 pl-5 rounded outline-none focus:border-blue-400" name="Fname" type="text">
+            </div>
+            <button class="btn w-full bg-purple-600 py-4 rounded text-white font-semibold  hover:bg-white hover:text-purple-800  ">Login</button>
+            
+        </form>
+
+    </div>
+
+    <div class="zone_form bg-grey p-10  rounded  shadow w-1/4 border-blue-800">
+        <h2 class="text-2xl  font-bold mb-10 text-purple-800">CONTACT US</h2>
+        <form action="" method="">
+            <div class="mb-3">
+                <label class="block mb-2 font-bold text-gray-800" for="Fname">NAME</label>
+                <input class="w-full  border-2 border-gray-400 pb-2 pt-2 pl-5 rounded outline-none focus:border-blue-400" name="Fname" type="text">
+            </div> 
+           <div class="mb-3">
+                <label class="block mb-2 font-bold text-gray-800" for="Fname">EMAIL</label>
+                <input class="w-full  border-2 border-gray-400 pb-2 pt-2 pl-5 rounded outline-none focus:border-blue-400" name="Fname" type="text">
+            </div>
+            <div class="mb-3">
+                <label class="block mb-2 font-bold text-gray-800" for="Fname">SUBJECT</label>
+                <input class="w-full  border-2 border-gray-400 pb-2 pt-2 pl-5 rounded outline-none focus:border-blue-400" name="Fname" type="text">
+            </div> 
+            <div class="mb-3">
+                <label class="block mb-2 font-bold text-gray-800" for="Fname">MESSAGE</label>
+                <textarea class="w-full  h-50 border-2 border-gray-400 pb-2 pt-2 pl-5 rounded outline-none focus:border-blue-400" name="Fname" type="text"></textarea>
+                <!-- <input class="w-full  border-2 border-gray-400 pb-2 pt-2 pl-5 rounded outline-none focus:border-blue-400" name="Fname" type="text"> -->
+            </div> 
+            <button class="btn w-full bg-purple-600 py-4 rounded text-white font-semibold  hover:bg-white hover:text-purple-800  ">Sign up</button>
+            
+        </form>
+
+    </div>
+
+</section>
 
 <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>

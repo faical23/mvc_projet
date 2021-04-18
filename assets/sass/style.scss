@@ -1,6 +1,13 @@
-@import "../../node_modules/";
 .form {
     width: 40%;
     margin: auto;
-    background-color: red;
+    background-color: yellow;
+}
+
+.btn:hover {
+    border: 2px solid purple;
+}
+
+.zone_form {
+    border: 2px solid black;
 }
