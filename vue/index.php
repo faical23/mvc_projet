@@ -9,88 +9,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css"> -->
+     <link rel="stylesheet" href="../node_modules/intl-tel-input/build/css/intlTelInput.css">
     <link rel="stylesheet" href="../node_modules/tailwindcss/dist/tailwind.min.css">
-    <link rel="stylesheet" href="../node_modules/intl-tel-input/build/css/intlTelInput.css">
-    <link rel="stylesheet" href="../node_modules/intl-tel-input/build/css/demo.css">
     <link rel="stylesheet" href="../assets/css/style.css">
     <title>Login</title>
 </head>
 <body>
-    <!-- <section class="form mb-5 mt-5" >
-        <h1>INSCRIPTION</h1>
-        <form action="../controllerd/inscription.php" method="POST">
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">First Name</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="FirstName">
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Last Name</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="LastName">
-            </div>
-            <select  id="cars">
-                <option value="+212">maroc (+212)</option>
-                <option value="+33">france (+33)</option>
-                <option value="+88">spain(+88)</option>
-                <option value="+66">italy (+66)</option>
-            </select>
-
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Number Phone</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="PhoneNumber">
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email </label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="Email">
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" name="Password">
-            </div>
-            
-
-                <button type="submit" class="btn btn-primary" name="btn_inscri">Submit</button>
-        </form>
-    </section>
-    <section class="form mb-5 mt-5">
-        <h1>CONTACT US</h1>
-        <form action="../controllerd/inscription.php" method="POST">
-        <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Name</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="Name">
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email </label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="Email">
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Subject</label>
-                <input type="text" class="form-control" id="exampleInputPassword1" name="Subject">
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Message</label>
-                <input type="text" class="form-control" id="exampleInputPassword1" name="Messsage">
-            </div>
-            
-
-                <button type="submit" class="btn btn-primary" name="btn_contact_us">Submit</button>
-        </form>
-    </section>
-    <section class="form mb-5 mt-5">
-        <h1>LOGIN</h1>
-        <form action="../controllerd/inscription.php" method="POST">
-
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email </label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="Email">
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="Password">
-            </div>
-                <button type="submit" class="btn btn-primary" name="btn_login">Submit</button>
-        </form>
-    </section> -->
 
 
 <!-- fortms -->
@@ -262,22 +186,21 @@
 
 
 
+<section class=" py-20 " style="text-align: -webkit-center">
 
+<h1 class="py-10 text-5xl text-purple-800 font-bold ">DASHBOARD</h1>
 
-<!-- dashboard -->
+<table class="border-collapse ... text-center overflow-hidden">
+    <tr class="text-2xl text-purple-800 font-regular">
+            <th class="w-1/1 ...  border border-purple-600 ... pt-5 pb-5 pl-10 pr-10">Ar</th>
+            <th class="w-1/1 ...  border border-purple-600 ... pt-5 pb-5 pl-10 pr-10">Last name</th>
+            <th class="w-1/1 ...  border border-purple-600 ... pt-5 pb-5 pl-10 pr-10">First name</th>
+            <th class="w-1/1 ...  border border-purple-600 ... pt-5 pb-5 pl-10 pr-10">Number Phone</th>
+            <th class="w-1/1 ...  border border-purple-600 ... pt-5 pb-5 pl-10 pr-10">Email</th>
+            <th class="w-1/1 ...  border border-purple-600 ... pt-5 pb-5 pl-10 pr-10">Password</th>
+            <th class="w-1/1 ...  border border-purple-600 ... pt-5 pb-5 pl-10 pr-10">Action</th>
 
-<section class="dashboard">
-        <h1>Dashboard</h1>
-        <table style="width:100%">
-        <tr>
-            <th>ar</th>
-            <th>Last name</th>
-            <th>First name</th>
-            <th>Number Phone</th>
-            <th>Email</th>
-            <th>Password</th>
-            <th>Action</th>
-        </tr>
+    </tr >
     <?php
         $execution = new CRUD("inscription_user");
         $res = $execution->select();
@@ -285,43 +208,78 @@
             foreach($res as $element)
             {
     ?>
-        <tr>
-            <td><?php echo $i ?></td>
-            <td><?php echo $element["FirstName"] ;?></td>
-            <td><?php echo $element["LastName"] ;?></td>
-            <td><?php echo $element["PhoneNumber"] ;?></td>
-            <td><?php echo $element["Email"] ;?></td>
-            <td><?php echo $element["password"] ;?></td>
-            <td><a href="#">Update</a> -- <a href="../controllerd/delete.php?id=<?php echo $element["id"]?>">Delete</a></td>
+    <tr >
+            <td class="w-1/1 ...  border border-purple-600 ... pt-5 pb-5 pl-10 pr-10 text-2xl font-regular "> <?php echo $i ;?></td>
+            <td class="w-1/1 ...  border border-purple-600 ... pt-5 pb-5 pl-10 pr-10 text-2xl font-regular "><?php echo $element["FirstName"] ;?></td>
+            <td class="w-1/1 ...  border border-purple-600 ... pt-5 pb-5 pl-10 pr-10 text-2xl font-regular "><?php echo $element["LastName"] ;?></td>
+            <td class="w-1/1 ...  border border-purple-600 ... pt-5 pb-5 pl-10 pr-10 text-2xl font-regular "> <?php echo $element["PhoneNumber"] ;?></td>
+            <td class="w-1/1 ...  border border-purple-600 ... pt-5 pb-5 pl-10 pr-10 text-2xl font-regular "><?php echo $element["Email"] ;?></td>
+            <td class="w-1/1 ...  border border-purple-600 ... pt-5 pb-5 pl-10 pr-10 text-2xl font-regular "><?php echo $element["password"] ;?></td>
+            <td class="w-1/1 ...  border border-purple-600 ... pt-5 pb-5 pl-10 pr-10 text-2xl font-regular ">
+            <div class="flex items-center space-x-20 ">
+                <a href=""><svg  xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="40px" viewBox="0 0 24 24" width="40px" fill="#5b21b6"><g><rect fill="none" height="24" width="24"/></g><g><g><g><path d="M3,21l3.75,0L17.81,9.94l-3.75-3.75L3,17.25L3,21z M5,18.08l9.06-9.06l0.92,0.92L5.92,19L5,19L5,18.08z"/></g><g><path d="M18.37,3.29c-0.39-0.39-1.02-0.39-1.41,0l-1.83,1.83l3.75,3.75l1.83-1.83c0.39-0.39,0.39-1.02,0-1.41L18.37,3.29z"/></g></g></g></svg></a>
+                <a href="../controllerd/delete.php?id=<?php echo $element["id"]?>"><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 0 24 24" width="40px" fill="#5b21b6"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M16 9v10H8V9h8m-1.5-6h-5l-1 1H5v2h14V4h-3.5l-1-1zM18 7H6v12c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7z"/></svg></a>
+            </div>
             
-        </tr>
+
+    </tr>
     <?php
     $i++;
     }
     ?>
-        </table>
 
-    
-    </section>
+</table>
+
+
+</section>
+
 
 
 
     <h1>International Telephone Input</h1>
-    <form>
-        <input id="phone" name="phone" type="tel">
-        <button type="submit">Submit</button>
-    </form>
+        <input id="phone" name="phone" type="tel" vlaue="+000 000 000 000">
+        <button class="submit_phone">Submit</button>
 
 
 
 
 
 
-<!-- <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script src="../node_modules/jquery/dist/jquery.min.js "></script>
 <script src="../node_modules/intl-tel-input/build/js/intlTelInput.js"></script>
     <script>
         var input = document.querySelector("#phone");
+        var btn = document.querySelector(".submit_phone");
+        var code_country= document.querySelector(".iti__selected-flag");
+
+
+        btn.addEventListener("click",() =>{
+            var code_country = document.querySelectorAll(".iti__dial-code");
+            code_country.forEach(element =>
+                 console.log(element.innerHTML)
+             );
+
+
+        })
         window.intlTelInput(input, {
             utilsScript: "build/js/utils.js",
         });
