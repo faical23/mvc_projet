@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="../assets/css/style.css">
     <title>Login</title>
 </head>
-<body>
+<body class="bg-gray-100">
 
 
 <!-- fortms -->
@@ -23,7 +23,7 @@
 
 <section class="pl-10 pr-10 pt-40 pb-40  grid xl:grid-cols-3 gap-10  lg:grid-cols-2 sm:grid-cols-2 grid-cols-1">
 
-    <div class="zone_form bg-grey p-10 mb-10  rounded  shadow  border-blue-800">
+    <div class="zone_form bg-grey p-10 mb-10  rounded  shadow  border-blue-800 bg-white">
         <h2 class="text-2xl  font-bold mb-10 text-purple-800">CREATE YOUR ACCOUNT</h2>
         <form  action="../controllerd/inscription.php" method="POST">
             <div class="mb-3">
@@ -67,7 +67,7 @@
 
     </div>
 
-    <div class="zone_form bg-grey p-10 mb-10  rounded  shadow  border-blue-800">
+    <div class="zone_form bg-grey p-10 mb-10  rounded  shadow  border-blue-800 bg-white">
         <h2 class="text-2xl  font-bold mb-10 text-purple-800">LOGIN</h2>
         <form  action="../controllerd/inscription.php" method="POST">
            <div class="mb-3">
@@ -151,7 +151,7 @@
 
     </div>
 
-    <div class="zone_form bg-grey p-10 mb-10  rounded  shadow  border-blue-800">
+    <div class="zone_form bg-grey p-10 mb-10  rounded  shadow  border-blue-800 bg-white">
         <h2 class="text-2xl  font-bold mb-10 text-purple-800">CONTACT US</h2>
         <form action="../controllerd/inscription.php" method="POST">
             <div class="mb-3">
@@ -191,15 +191,14 @@
 <h1 class="py-10 text-5xl text-purple-800 font-bold ">DASHBOARD</h1>
 
 <table class="border-collapse ... text-center overflow-hidden">
-    <tr class="text-2xl text-purple-800 font-regular">
-            <th class="w-1/1 ...  border border-purple-600 ... pt-5 pb-5 pl-10 pr-10">Ar</th>
-            <th class="w-1/1 ...  border border-purple-600 ... pt-5 pb-5 pl-10 pr-10">Last name</th>
-            <th class="w-1/1 ...  border border-purple-600 ... pt-5 pb-5 pl-10 pr-10">First name</th>
-            <th class="w-1/1 ...  border border-purple-600 ... pt-5 pb-5 pl-10 pr-10">Number Phone</th>
-            <th class="w-1/1 ...  border border-purple-600 ... pt-5 pb-5 pl-10 pr-10">Email</th>
-            <th class="w-1/1 ...  border border-purple-600 ... pt-5 pb-5 pl-10 pr-10">Password</th>
-            <th class="w-1/1 ...  border border-purple-600 ... pt-5 pb-5 pl-10 pr-10">Action</th>
-
+    <tr class="header-table text-2xl text-white font-regular bg-purple-800 ">
+             <th class="w-1/1 ...   ... pt-5 pb-5 pl-10 pr-10">Ar</th>
+            <th class="w-1/1 ...   ... pt-5 pb-5 pl-10 pr-10">Last name</th>
+            <th class="w-1/1 ...   ... pt-5 pb-5 pl-10 pr-10">First name</th>
+            <th class="w-1/1 ...   ... pt-5 pb-5 pl-10 pr-10">Number Phone</th>
+            <th class="w-1/1 ...   ... pt-5 pb-5 pl-10 pr-10">Email</th>
+            <th class="w-1/1 ...   ... pt-5 pb-5 pl-10 pr-10">Password</th>
+            <th class="w-1/1 ...   ... pt-5 pb-5 pl-10 pr-10">Action</th>
     </tr >
     <?php
         $execution = new CRUD("inscription_user");
@@ -208,14 +207,14 @@
             foreach($res as $element)
             {
     ?>
-    <tr >
-            <td class="w-1/1 ...  border border-purple-600 ... pt-5 pb-5 pl-10 pr-10 text-2xl font-regular "> <?php echo $i ;?></td>
-            <td class="w-1/1 ...  border border-purple-600 ... pt-5 pb-5 pl-10 pr-10 text-2xl font-regular "><?php echo $element["FirstName"] ;?></td>
-            <td class="w-1/1 ...  border border-purple-600 ... pt-5 pb-5 pl-10 pr-10 text-2xl font-regular "><?php echo $element["LastName"] ;?></td>
-            <td class="w-1/1 ...  border border-purple-600 ... pt-5 pb-5 pl-10 pr-10 text-2xl font-regular "> <?php echo $element["PhoneNumber"] ;?></td>
-            <td class="w-1/1 ...  border border-purple-600 ... pt-5 pb-5 pl-10 pr-10 text-2xl font-regular "><?php echo $element["Email"] ;?></td>
-            <td class="w-1/1 ...  border border-purple-600 ... pt-5 pb-5 pl-10 pr-10 text-2xl font-regular "><?php echo $element["password"] ;?></td>
-            <td class="w-1/1 ...  border border-purple-600 ... pt-5 pb-5 pl-10 pr-10 text-2xl font-regular ">
+    <tr class="body-table">
+            <td class="w-1/1 ...  ... pt-5 pb-5 pl-10 pr-10 text-2xl font-regular "> <?php echo $i ;?></td>
+            <td class="w-1/1 ...  ... pt-5 pb-5 pl-10 pr-10 text-2xl font-regular "><?php echo $element["FirstName"] ;?></td>
+            <td class="w-1/1 ...  ... pt-5 pb-5 pl-10 pr-10 text-2xl font-regular "><?php echo $element["LastName"] ;?></td>
+            <td class="w-1/1 ...  ... pt-5 pb-5 pl-10 pr-10 text-2xl font-regular "> <?php echo $element["PhoneNumber"] ;?></td>
+            <td class="w-1/1 ...  ... pt-5 pb-5 pl-10 pr-10 text-2xl font-regular "><?php echo $element["Email"] ;?></td>
+            <td class="w-1/1 ...  ... pt-5 pb-5 pl-10 pr-10 text-2xl font-regular "><?php echo $element["password"] ;?></td>
+            <td class="w-1/1 ...  ... pt-5 pb-5 pl-10 pr-10 text-2xl font-regular ">
             <div class="flex items-center space-x-20 ">
                 <a href=""><svg  xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="40px" viewBox="0 0 24 24" width="40px" fill="#5b21b6"><g><rect fill="none" height="24" width="24"/></g><g><g><g><path d="M3,21l3.75,0L17.81,9.94l-3.75-3.75L3,17.25L3,21z M5,18.08l9.06-9.06l0.92,0.92L5.92,19L5,19L5,18.08z"/></g><g><path d="M18.37,3.29c-0.39-0.39-1.02-0.39-1.41,0l-1.83,1.83l3.75,3.75l1.83-1.83c0.39-0.39,0.39-1.02,0-1.41L18.37,3.29z"/></g></g></g></svg></a>
                 <a href="../controllerd/delete.php?id=<?php echo $element["id"]?>"><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 0 24 24" width="40px" fill="#5b21b6"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M16 9v10H8V9h8m-1.5-6h-5l-1 1H5v2h14V4h-3.5l-1-1zM18 7H6v12c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7z"/></svg></a>
