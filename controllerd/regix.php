@@ -27,7 +27,7 @@
                         }
                       
                     }
-                    else if($key == "email")
+                    else if($key == "Email")
                     {
                         if(!preg_match(self::RG_EMAIL, $value))
                         {

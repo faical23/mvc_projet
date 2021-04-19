@@ -1,4 +1,5 @@
 <?php
+
     include "../controllerd/inscription.php";
 
 ?>
@@ -191,7 +192,7 @@
 <h1 class="py-10 text-5xl text-purple-800 font-bold ">DASHBOARD</h1>
 
 <table class="border-collapse ... text-center overflow-hidden">
-    <tr class="header-table text-2xl text-white font-regular bg-purple-800 ">
+    <tr class="header-table text-1xl text-white font-regular bg-purple-800 ">
              <th class="w-1/1 ...   ... pt-5 pb-5 pl-10 pr-10">Ar</th>
             <th class="w-1/1 ...   ... pt-5 pb-5 pl-10 pr-10">Last name</th>
             <th class="w-1/1 ...   ... pt-5 pb-5 pl-10 pr-10">First name</th>
@@ -207,17 +208,17 @@
             foreach($res as $element)
             {
     ?>
-    <tr class="body-table">
-            <td class="w-1/1 ...  ... pt-5 pb-5 pl-10 pr-10 text-2xl font-regular "> <?php echo $i ;?></td>
-            <td class="w-1/1 ...  ... pt-5 pb-5 pl-10 pr-10 text-2xl font-regular "><?php echo $element["FirstName"] ;?></td>
-            <td class="w-1/1 ...  ... pt-5 pb-5 pl-10 pr-10 text-2xl font-regular "><?php echo $element["LastName"] ;?></td>
-            <td class="w-1/1 ...  ... pt-5 pb-5 pl-10 pr-10 text-2xl font-regular "> <?php echo $element["PhoneNumber"] ;?></td>
-            <td class="w-1/1 ...  ... pt-5 pb-5 pl-10 pr-10 text-2xl font-regular "><?php echo $element["Email"] ;?></td>
-            <td class="w-1/1 ...  ... pt-5 pb-5 pl-10 pr-10 text-2xl font-regular "><?php echo $element["password"] ;?></td>
-            <td class="w-1/1 ...  ... pt-5 pb-5 pl-10 pr-10 text-2xl font-regular ">
+    <tr class="body-table text-base text-purple-800 font-regular">
+            <td class="w-1/1 ...  ... pt-5 pb-5 pl-10 pr-10 r "> <?php echo $i ;?></td>
+            <td class="w-1/1 ...  ... pt-5 pb-5 pl-10 pr-10 r "><?php echo $element["FirstName"] ;?></td>
+            <td class="w-1/1 ...  ... pt-5 pb-5 pl-10 pr-10 r "><?php echo $element["LastName"] ;?></td>
+            <td class="w-1/1 ...  ... pt-5 pb-5 pl-10 pr-10 r "> <?php echo $element["PhoneNumber"] ;?></td>
+            <td class="w-1/1 ...  ... pt-5 pb-5 pl-10 pr-10 r "><?php echo $element["Email"] ;?></td>
+            <td class="w-1/1 ...  ... pt-5 pb-5 pl-10 pr-10 r "><?php echo $element["password"] ;?></td>
+            <td class="w-1/1 ...  ... pt-5 pb-5 pl-10 pr-10 r ">
             <div class="flex items-center space-x-20 ">
-                <a href=""><svg  xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="40px" viewBox="0 0 24 24" width="40px" fill="#5b21b6"><g><rect fill="none" height="24" width="24"/></g><g><g><g><path d="M3,21l3.75,0L17.81,9.94l-3.75-3.75L3,17.25L3,21z M5,18.08l9.06-9.06l0.92,0.92L5.92,19L5,19L5,18.08z"/></g><g><path d="M18.37,3.29c-0.39-0.39-1.02-0.39-1.41,0l-1.83,1.83l3.75,3.75l1.83-1.83c0.39-0.39,0.39-1.02,0-1.41L18.37,3.29z"/></g></g></g></svg></a>
-                <a href="../controllerd/delete.php?id=<?php echo $element["id"]?>"><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 0 24 24" width="40px" fill="#5b21b6"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M16 9v10H8V9h8m-1.5-6h-5l-1 1H5v2h14V4h-3.5l-1-1zM18 7H6v12c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7z"/></svg></a>
+                <a class="cursor-pointer	" href=""><svg  xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="40px" viewBox="0 0 24 24" width="40px" fill="#5b21b6"><g><rect fill="none" height="24" width="24"/></g><g><g><g><path d="M3,21l3.75,0L17.81,9.94l-3.75-3.75L3,17.25L3,21z M5,18.08l9.06-9.06l0.92,0.92L5.92,19L5,19L5,18.08z"/></g><g><path d="M18.37,3.29c-0.39-0.39-1.02-0.39-1.41,0l-1.83,1.83l3.75,3.75l1.83-1.83c0.39-0.39,0.39-1.02,0-1.41L18.37,3.29z"/></g></g></g></svg></a>
+                <a   class="cursor-pointer	" onclick=" delete_popup(<?php echo $element['id']?>)"><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 0 24 24" width="40px" fill="#5b21b6"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M16 9v10H8V9h8m-1.5-6h-5l-1 1H5v2h14V4h-3.5l-1-1zM18 7H6v12c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7z"/></svg></a>
             </div>
             
 
@@ -265,7 +266,40 @@
 
 <script src="../node_modules/jquery/dist/jquery.min.js "></script>
 <script src="../node_modules/intl-tel-input/build/js/intlTelInput.js"></script>
+<script src="../node_modules/sweetalert/dist/sweetalert.min.js"></script>
+
+
+
+
+
+
     <script>
+
+        function delete_popup(id_user) {
+
+
+        swal({
+                title: "Are you sure?",
+                text: "Once deleted, you will not be able to recover this imaginary file!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+                    window.location.href = `../controllerd/delete.php?id=${id_user}`;
+                } else {
+                    swal("Your imaginary file is safe!");
+                }
+            });
+
+        }
+
+
+
+
+
+
         var input = document.querySelector("#phone");
         var btn = document.querySelector(".submit_phone");
         var code_country= document.querySelector(".iti__selected-flag");
@@ -283,7 +317,125 @@
             utilsScript: "build/js/utils.js",
         });
     </script>
-<script>
-</script>
+
+<?php
+if(isset($_SESSION["send_message"])){
+?>
+    <script>
+    
+            swal({
+        title: "Congratulations",
+        text: "Message has been sent!",
+        icon: "success",
+        });
+    
+    </script>
+
+<?Php
+  unset($_SESSION["send_message"]);
+}
+?>
+<?php
+if(isset($_SESSION["login"])){
+?>
+    <script>
+    
+            swal({
+        title: "Congratulations",
+        text: "Welcome in ur account",
+        icon: "success",
+        });
+    
+    </script>
+
+<?Php
+  unset($_SESSION["login"]);
+}
+?>
+<?php
+if(isset($_SESSION["inscription"])){
+?>
+    <script>
+    
+            swal({
+                title: "Congratulations",
+                text: "Ur inscription successfully",
+                icon: "success",
+                });
+    
+    </script>
+
+<?Php
+  unset($_SESSION["inscription"]);
+}
+?>
+<?php
+if(isset($_SESSION['email_exist'])){
+?>
+    <script>
+    
+            swal({
+                title: "Error",
+                text: "Email exist",
+                icon: "error",
+                });
+    
+    </script>
+
+<?Php
+  unset($_SESSION["email_exist"]);
+}
+?>
+<?php
+if(isset($_SESSION['email_password_wrong'])){
+?>
+    <script>
+    
+            swal({
+                title: "Error",
+                text: "Email or password is wrong",
+                icon: "error",
+                });
+    
+    </script>
+
+<?Php
+  unset($_SESSION["email_password_wrong"]);
+}
+?>
+<?php
+if(isset($_SESSION['send_not_message'])){
+?>
+    <script>
+    
+            swal({
+                title: "Error",
+                text: "Message not sent somthing is wrong",
+                icon: "error",
+                });
+    
+    </script>
+
+<?Php
+  unset($_SESSION['send_not_message']);
+}
+?>
+<?php
+if(isset($_SESSION['regix_not_valide'])){
+?>
+    <script>
+    
+            swal({
+                title: "Error",
+                text: "error in some field please check",
+                icon: "error",
+                });
+    
+    </script>
+
+<?Php
+  unset($_SESSION['regix_not_valide']);
+}
+?>
 </body>
 </html>

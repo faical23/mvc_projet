@@ -1,32 +1,31 @@
 <?php
 
+session_start();
+
 include "regix.php";
 
-
-function VALIDE_INSERT($table , $arr){
-    //  create new object from table VALIDE REGIX
+function VALIDE($table,$arr){
     $exectution = new VALIDE_RG();
-    // if REGIX IS VALIDE 
-    if($exectution->INFORMATIONS($table,$arr)){
-        //create new object from table INSERT_DATA
-        $exectution = new INSER_DATA();   
-        $exectution->INFORMATIONS($table,$arr);
+    if($exectution->INFORMATIONS($table,$arr) == true){
+        return true;
     }
+    else{
+        $_SESSION['regix_not_valide']="regix_not_valide";
+    }
+    return false;
 }
 
-
-function VALIDE_CHECK($table,$arr){
-    $exectution = new VALIDE_RG();
-    if($exectution->INFORMATIONS($table,$arr)){
+function CHECK ($table,$arr){
         $check_if_exist = new CRUD($table);
-        //// methode to check if this email is existing or noot !
         $exist = $check_if_exist->select("yes", $arr);
         return $exist;
     }
-    else{
-        echo "regix not valide";
-    }
+
+function INSERT($table,$arr){
+   $exectution = new INSER_DATA();   
+   $exectution->INFORMATIONS($table,$arr);
 }
+
 
 
 ////////////// inscription users
@@ -44,20 +43,22 @@ if(isset($_POST["btn_inscri"]))
     $table = "inscription_user";
     /// create new object from class CRUD
 
-
-    // if(!($exist)){
         $arr = ["LastName" => $Lname , "FirstName" => $Fname , "PhoneNumber" => $PhoneNumber , "Email" => $Email  , "password" => $Password ];
         // if REGIX IS VALIDE 
-        $exist = VALIDE_CHECK($table,["email" => $Email]);
-        if(!($exist)){
-            $exectution = new INSER_DATA();   
-            $exectution->INFORMATIONS($table,$arr);
-        }
-        else{
-            echo "email exist";
+        $RG_VALIDE = VALIDE($table,$arr);
+        if($RG_VALIDE){
+            $exist_email = CHECK($table,["Email" => $Email]);
+            if($exist_email == 0 )
+            {
+                INSERT($table,$arr);
+                $_SESSION['inscription']="inscription";
+            }
+            else{
+                $_SESSION['email_exist']="email_exist";
+            }
         }
         
-
+        header('Location:../vue/index.php');
 }
 
 
@@ -76,7 +77,17 @@ if(isset($_POST["btn_contact_us"]))
     $table = "contact";
 
     $arr = ["name" => $Name ,"Email" => $Email  , "subject" => $Subject, "message" => $Message ];
-    VALIDE_INSERT($table , $arr);
+    $RG_VALIDE = VALIDE($table,$arr);
+    if($RG_VALIDE){
+        INSERT($table,$arr);
+        $_SESSION['send_message']="send_messgae";
+    }
+    else{
+        $_SESSION['send_not_message']="send_not_messgae";
+
+    }
+    header('Location:../vue/index.php');
+
 }
 
 
@@ -84,7 +95,7 @@ if(isset($_POST["btn_contact_us"]))
 ///////// login users
 
 
-/// valide => check
+/// valide regix=> check
 
 if(isset($_POST["btn_login"]))
 {
@@ -93,13 +104,20 @@ if(isset($_POST["btn_login"]))
     $table = "inscription_user";
     $arr = ["email" => $Email  , "password" => $Password ];
 
-    $exist = VALIDE_CHECK($table,$arr);
-    if($exist){
-        echo "congratulations !!";
+    $RG_VALIDE = VALIDE($table,$arr);
+    if($RG_VALIDE){
+        $exist_email = CHECK($table,$arr);
+        if( $exist_email == 1)
+        {
+            $_SESSION['login']="login";
+        }
+        else{
+            $_SESSION['email_password_wrong']='email_password_wrong';
+        }
+
     }
-    else{
-        echo "email OR password not exist";
-    }
+
+    header('Location:../vue/index.php');
 
 }
 
