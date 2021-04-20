@@ -14,7 +14,6 @@ function VALIDE($table,$arr){
     }
     return false;
 }
-
 function CHECK ($table,$arr){
         $check_if_exist = new CRUD($table);
         $exist = $check_if_exist->select("yes", $arr);
@@ -122,4 +121,31 @@ if(isset($_POST["btn_login"]))
 }
 
 
+
+if(isset($_POST["btn_update"]))
+{
+    $Fname = $_POST["FirstName"];
+    $Lname = $_POST["LastName"];
+    $PhoneNumber = $_POST["PhoneNumber"];
+    $Email = $_POST["Email"];
+    $Password = $_POST["Password"];
+    $table = "inscription_user";
+    $id= $_POST["id"];
+    /// create new object from class CRUD
+
+    $arr = ["LastName" => $Lname , "FirstName" => $Fname , "PhoneNumber" => $PhoneNumber , "Email" => $Email  , "password" => $Password ];
+    $RG_VALIDE = VALIDE($table,$arr);
+    if($RG_VALIDE){
+        $exectution = new CRUD($table);
+        $exectution->update($arr,$id);
+        $_SESSION["Success update"] = ["Success update"];
+    }
+    else{
+        $_SESSION["Error update"] = ["Error update"];
+
+    }
+    header('Location:../vue/index.php');
+
+
+}
 ?>

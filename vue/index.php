@@ -29,7 +29,7 @@
         <form  action="../controllerd/inscription.php" method="POST">
             <div class="mb-3">
                 <label class="block mb-2 font-bold text-gray-800" for="Fname">FIRST NAME</label>
-                <input class="w-full  border-2 border-gray-400 pb-2 pt-2 pl-5 rounded outline-none focus:border-blue-400" name="FirstName" type="text">
+                <input class="w-full  border-2 border-gray-400 pb-2 pt-2 pl-5 rounded outline-none focus:border-blue-400" name="FirstName" id="firsttest" type="text">
             </div>
             <div class="mb-3">
                 <label class="block mb-2 font-bold text-gray-800" for="Fname">LAST NAME</label>
@@ -209,7 +209,7 @@
             {
     ?>
     <tr class="body-table text-base text-purple-800 font-regular">
-            <td class="w-1/1 ...  ... pt-5 pb-5 pl-10 pr-10 r "> <?php echo $i ;?></td>
+            <td class="w-1/1 ...  ... pt-5 pb-5 pl-10 pr-10 r "> <?php echo $element["id"] ;?></td>
             <td class="w-1/1 ...  ... pt-5 pb-5 pl-10 pr-10 r "><?php echo $element["FirstName"] ;?></td>
             <td class="w-1/1 ...  ... pt-5 pb-5 pl-10 pr-10 r "><?php echo $element["LastName"] ;?></td>
             <td class="w-1/1 ...  ... pt-5 pb-5 pl-10 pr-10 r "> <?php echo $element["PhoneNumber"] ;?></td>
@@ -217,7 +217,7 @@
             <td class="w-1/1 ...  ... pt-5 pb-5 pl-10 pr-10 r "><?php echo $element["password"] ;?></td>
             <td class="w-1/1 ...  ... pt-5 pb-5 pl-10 pr-10 r ">
             <div class="flex items-center space-x-20 ">
-                <a class="cursor-pointer	" href=""><svg  xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="40px" viewBox="0 0 24 24" width="40px" fill="#5b21b6"><g><rect fill="none" height="24" width="24"/></g><g><g><g><path d="M3,21l3.75,0L17.81,9.94l-3.75-3.75L3,17.25L3,21z M5,18.08l9.06-9.06l0.92,0.92L5.92,19L5,19L5,18.08z"/></g><g><path d="M18.37,3.29c-0.39-0.39-1.02-0.39-1.41,0l-1.83,1.83l3.75,3.75l1.83-1.83c0.39-0.39,0.39-1.02,0-1.41L18.37,3.29z"/></g></g></g></svg></a>
+                <a class="cursor-pointer update_icon" ><svg  xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="40px" viewBox="0 0 24 24" width="40px" fill="#5b21b6"><g><rect fill="none" height="24" width="24"/></g><g><g><g><path d="M3,21l3.75,0L17.81,9.94l-3.75-3.75L3,17.25L3,21z M5,18.08l9.06-9.06l0.92,0.92L5.92,19L5,19L5,18.08z"/></g><g><path d="M18.37,3.29c-0.39-0.39-1.02-0.39-1.41,0l-1.83,1.83l3.75,3.75l1.83-1.83c0.39-0.39,0.39-1.02,0-1.41L18.37,3.29z"/></g></g></g></svg></a>
                 <a   class="cursor-pointer	" onclick=" delete_popup(<?php echo $element['id']?>)"><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 0 24 24" width="40px" fill="#5b21b6"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M16 9v10H8V9h8m-1.5-6h-5l-1 1H5v2h14V4h-3.5l-1-1zM18 7H6v12c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7z"/></svg></a>
             </div>
             
@@ -236,35 +236,12 @@
 
 
 
-    <h1>International Telephone Input</h1>
-        <input id="phone" name="phone" type="tel" vlaue="+000 000 000 000">
-        <button class="submit_phone">Submit</button>
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<script src="../node_modules/jquery/dist/jquery.min.js "></script>
+<script src="../node_modules//jquery/dist/jquery.min.js"></script>
 <script src="../node_modules/intl-tel-input/build/js/intlTelInput.js"></script>
 <script src="../node_modules/sweetalert/dist/sweetalert.min.js"></script>
 
@@ -273,62 +250,90 @@
 
 
 
-    <script>
-
-        function delete_popup(id_user) {
 
 
-        swal({
-                title: "Are you sure?",
-                text: "Once deleted, you will not be able to recover this imaginary file!",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-            })
-            .then((willDelete) => {
-                if (willDelete) {
-                    window.location.href = `../controllerd/delete.php?id=${id_user}`;
-                } else {
-                    swal("Your imaginary file is safe!");
-                }
-            });
+<div class="zone_form update_form bg-white p-10 mb-10  rounded  shadow-2xl	 border-blue-800  w-1/3 fixed top-1 left-1/3 hidden	 ">
+        <h2 class="text-2xl  font-bold mb-10 text-purple-800">UPDATE INFORMATIONS</h2>
+        <form  action="../controllerd/inscription.php" method="POST">
+        <div class="mb-3 hidden">
+                <label class="block mb-2 font-bold text-gray-800" for="Fname">ID</label>
+                <input class="w-full  border-2 border-gray-400 pb-2 pt-2 pl-5 rounded outline-none focus:border-blue-400" name="id" id="id" type="text">
+            </div>
+            <div class="mb-3">
+                <label class="block mb-2 font-bold text-gray-800" for="Fname">FIRST NAME</label>
+                <input class="w-full  border-2 border-gray-400 pb-2 pt-2 pl-5 rounded outline-none focus:border-blue-400" name="FirstName" id="FirstName" type="text">
+            </div>
+            <div class="mb-3">
+                <label class="block mb-2 font-bold text-gray-800" for="Fname">LAST NAME</label>
+                <input class="w-full  border-2 border-gray-400 pb-2 pt-2 pl-5 rounded outline-none focus:border-blue-400"name="LastName" id="LastName"  type="text">
+            </div> 
+           <div class="mb-3">
+                <label class="block mb-2 font-bold text-gray-800" for="Fname">PHONE NUMBER</label>
+                <div class="flex items-center">
+                <select  id="number" class="border-2 border-gray-400 pb-2 pt-2 pl-2 rounded outline-none focus:border-blue-400  w-1/3">
+                    <option value="+212"  data-thumbnail="http://icons.iconarchive.com/icons/tinylab/android-lollipop-apps/24/Evernote-icon.png">44</option>
+                    <option value="+33">+33</option>
+                    <option value="+88">+88</option>
+                    <option value="+66">+66</option>
+                </select>
 
-        }
+                
+                <input class="w-full  border-2 border-gray-400 pb-2 pt-2 pl-5 rounded outline-none focus:border-blue-400" name="PhoneNumber" id="PhoneNumber" type="text">
+                </div>
+            </div> 
+           <div class="mb-3">
+                <label class="block mb-2 font-bold text-gray-800" for="Fname">EMAIL</label>
+                <input class="w-full  border-2 border-gray-400 pb-2 pt-2 pl-5 rounded outline-none focus:border-blue-400" name="Email" id="Email" type="text">
+            </div>
+            <div class="mb-3">
+                <label class="block mb-2 font-bold text-gray-800" for="Fname">PASSWORD</label>
+                <input class="w-full  border-2 border-gray-400 pb-2 pt-2 pl-5 rounded outline-none focus:border-blue-400" name="Password"  id ="password" type="text">
+            </div>
+            <button class="btn w-full bg-purple-600 py-4 mb-10 rounded text-white font-semibold  hover:bg-white hover:text-purple-800  " type="submit" name="btn_update">UPDATE</button>
+            <a class="back-btn w-full cursor-pointer bg-black py-4 px-64 mt-10  rounded text-white font-semibold  hover:bg-white hover:text-purple-800  "  >BACK</a>
+        </form>
+
+    </div>
 
 
 
 
 
 
-        var input = document.querySelector("#phone");
-        var btn = document.querySelector(".submit_phone");
-        var code_country= document.querySelector(".iti__selected-flag");
 
 
-        btn.addEventListener("click",() =>{
-            var code_country = document.querySelectorAll(".iti__dial-code");
-            code_country.forEach(element =>
-                 console.log(element.innerHTML)
-             );
 
 
-        })
-        window.intlTelInput(input, {
-            utilsScript: "build/js/utils.js",
-        });
-    </script>
+<script src="../assets/js/main.js"></script>
+
+<script>
+    var tbl = document.querySelector("table");
+    for(var i = 1 ; i < tbl.rows.length; i++){
+
+        tbl.rows[i].onclick = function (){
+                $(".update_form").show(300);
+                document.querySelector("#id").value = this.cells[0].innerHTML
+                document.querySelector("#FirstName").value = this.cells[1].innerHTML
+                document.querySelector("#LastName").value = this.cells[2].innerHTML
+                document.querySelector("#PhoneNumber").value = this.cells[3].innerHTML
+                document.querySelector("#Email").value = this.cells[4].innerHTML
+                document.querySelector("#password").value = this.cells[5].innerHTML 
+         }  
+
+
+        // tbl.rows[i].cells[6].onclick = function () {
+        //     console.log(tbl.rows[i].cells[3].innerHTML);
+        // }
+
+    }
+
+</script>
 
 <?php
 if(isset($_SESSION["send_message"])){
 ?>
     <script>
-    
-            swal({
-        title: "Congratulations",
-        text: "Message has been sent!",
-        icon: "success",
-        });
-    
+        success("Message has been sent ");
     </script>
 
 <?Php
@@ -338,14 +343,8 @@ if(isset($_SESSION["send_message"])){
 <?php
 if(isset($_SESSION["login"])){
 ?>
-    <script>
-    
-            swal({
-        title: "Congratulations",
-        text: "Welcome in ur account",
-        icon: "success",
-        });
-    
+    <script>  
+      success("Welcome in Ur account ");    
     </script>
 
 <?Php
@@ -356,13 +355,7 @@ if(isset($_SESSION["login"])){
 if(isset($_SESSION["inscription"])){
 ?>
     <script>
-    
-            swal({
-                title: "Congratulations",
-                text: "Ur inscription successfully",
-                icon: "success",
-                });
-    
+        success("Success Inscription");
     </script>
 
 <?Php
@@ -372,14 +365,8 @@ if(isset($_SESSION["inscription"])){
 <?php
 if(isset($_SESSION['email_exist'])){
 ?>
-    <script>
-    
-            swal({
-                title: "Error",
-                text: "Email exist",
-                icon: "error",
-                });
-    
+    <script>    
+        error("Email existing")
     </script>
 
 <?Php
@@ -390,13 +377,7 @@ if(isset($_SESSION['email_exist'])){
 if(isset($_SESSION['email_password_wrong'])){
 ?>
     <script>
-    
-            swal({
-                title: "Error",
-                text: "Email or password is wrong",
-                icon: "error",
-                });
-    
+        error("Email or password Wrong")
     </script>
 
 <?Php
@@ -404,37 +385,25 @@ if(isset($_SESSION['email_password_wrong'])){
 }
 ?>
 <?php
-if(isset($_SESSION['send_not_message'])){
-?>
-    <script>
-    
-            swal({
-                title: "Error",
-                text: "Message not sent somthing is wrong",
-                icon: "error",
-                });
-    
-    </script>
-
-<?Php
-  unset($_SESSION['send_not_message']);
-}
-?>
-<?php
 if(isset($_SESSION['regix_not_valide'])){
 ?>
     <script>
-    
-            swal({
-                title: "Error",
-                text: "error in some field please check",
-                icon: "error",
-                });
-    
+            error("error in some field please check")
     </script>
 
 <?Php
   unset($_SESSION['regix_not_valide']);
+}
+?>
+<?php
+if(isset($_SESSION["Success update"])){
+?>
+    <script>
+        success("Success Update");
+    </script>
+
+<?Php
+  unset($_SESSION["Success update"]);
 }
 ?>
 </body>

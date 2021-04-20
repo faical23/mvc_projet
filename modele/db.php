@@ -71,6 +71,27 @@ include "../modele/connect.php";
         $stmt->execute();
         return $stmt;
     }
+
+    public function update($element = [],$condition){
+            $i = 0;
+            $sql = "UPDATE $this->table SET ";
+            $elment_length =  count($element) -1 ;
+            foreach ($element as $key => $value) {
+                if($i == 0)
+                {
+                    $sql .= "$key = '$value'";
+                }
+                else if($i > 0){
+                    $sql .= " , $key = '$value'";
+                }
+                $i++;
+            }
+            $sql.= " WHERE id = $condition";
+            $stmt = $this->dbh->prepare($sql);
+            $stmt->execute();
+            return $stmt;
+    } 
+
 }
 
 
