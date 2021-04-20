@@ -17,6 +17,8 @@
         public function INFORMATIONS($table,$arr){
             $GLOBALS["arr_2"] = $arr;
             $valide = true;
+            //  $arr=["email" => "faical@gmail.com" , "email" => "fjdshsdhsd"];
+
             foreach($arr as $key => $value){
                 if(!empty($value)){
                     if($key == "name" || $key == "Fname" || $key == "Lname")

@@ -10,9 +10,11 @@ include "../modele/connect.php";
         $this->table = $table;
     }
 
+
       public function insert($element = []){
         $columns = "";
         $values_column = "";
+
 
         $elment_length =  count($element) -1 ;
         $i=0;
@@ -35,6 +37,9 @@ include "../modele/connect.php";
     }
 
     public function select($check = "",$conditions = []){
+        // $arr=["email" => "faical@gmail.com" , "email" => "fjdshsdhsd"];
+        // selecet * from "WHERE email =  faical@gmail.com";
+
         $i = 0;
         $sql = "SELECT * FROM $this->table ";
         foreach ($conditions as $key => $value) {
@@ -86,6 +91,7 @@ include "../modele/connect.php";
                 }
                 $i++;
             }
+            
             $sql.= " WHERE id = $condition";
             $stmt = $this->dbh->prepare($sql);
             $stmt->execute();

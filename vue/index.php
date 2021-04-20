@@ -1,6 +1,6 @@
 <?php
 
-    include "../controllerd/inscription.php";
+    include "../controllerd/connect_logic.php";
 
 ?>
 
@@ -26,7 +26,7 @@
 
     <div class="zone_form bg-grey p-10 mb-10  rounded  shadow  border-blue-800 bg-white">
         <h2 class="text-2xl  font-bold mb-10 text-purple-800">CREATE YOUR ACCOUNT</h2>
-        <form  action="../controllerd/inscription.php" method="POST">
+        <form  action="../controllerd/connect_logic.php" method="POST">
             <div class="mb-3">
                 <label class="block mb-2 font-bold text-gray-800" for="Fname">FIRST NAME</label>
                 <input class="w-full  border-2 border-gray-400 pb-2 pt-2 pl-5 rounded outline-none focus:border-blue-400" name="FirstName" id="firsttest" type="text">
@@ -70,7 +70,7 @@
 
     <div class="zone_form bg-grey p-10 mb-10  rounded  shadow  border-blue-800 bg-white">
         <h2 class="text-2xl  font-bold mb-10 text-purple-800">LOGIN</h2>
-        <form  action="../controllerd/inscription.php" method="POST">
+        <form  action="../controllerd/connect_logic.php" method="POST">
            <div class="mb-3">
                 <label class="block mb-2 font-bold text-gray-800" for="Fname">EMAIL</label>
                 <input class="w-full  border-2 border-gray-400 pb-2 pt-2 pl-5 rounded outline-none focus:border-blue-400" name="Email" type="text">
@@ -154,7 +154,7 @@
 
     <div class="zone_form bg-grey p-10 mb-10  rounded  shadow  border-blue-800 bg-white">
         <h2 class="text-2xl  font-bold mb-10 text-purple-800">CONTACT US</h2>
-        <form action="../controllerd/inscription.php" method="POST">
+        <form action="../controllerd/connect_logic.php" method="POST">
             <div class="mb-3">
                 <label class="block mb-2 font-bold text-gray-800" for="Fname">NAME</label>
                 <input class="w-full  border-2 border-gray-400 pb-2 pt-2 pl-5 rounded outline-none focus:border-blue-400" name="Name" type="text">
@@ -209,8 +209,8 @@
             {
     ?>
     <tr class="body-table text-base text-purple-800 font-regular">
-            <td class="w-1/1 ...  ... pt-5 pb-5 pl-10 pr-10 r "> <?php echo $element["id"] ;?></td>
-            <td class="w-1/1 ...  ... pt-5 pb-5 pl-10 pr-10 r "><?php echo $element["FirstName"] ;?></td>
+            <td class="w-1/1 ...  ... pt-5 pb-5 pl-10 pr-10 r " > <?php echo $element["id"] ;?></td>
+            <td class="w-1/1 ...  ... pt-5 pb-5 pl-10 pr-10 r " id="tbl_firstname"><?php echo $element["FirstName"] ;?></td>
             <td class="w-1/1 ...  ... pt-5 pb-5 pl-10 pr-10 r "><?php echo $element["LastName"] ;?></td>
             <td class="w-1/1 ...  ... pt-5 pb-5 pl-10 pr-10 r "> <?php echo $element["PhoneNumber"] ;?></td>
             <td class="w-1/1 ...  ... pt-5 pb-5 pl-10 pr-10 r "><?php echo $element["Email"] ;?></td>
@@ -254,7 +254,7 @@
 
 <div class="zone_form update_form bg-white p-10 mb-10  rounded  shadow-2xl	 border-blue-800  w-1/3 fixed top-1 left-1/3 hidden	 ">
         <h2 class="text-2xl  font-bold mb-10 text-purple-800">UPDATE INFORMATIONS</h2>
-        <form  action="../controllerd/inscription.php" method="POST">
+        <form  action="../controllerd/connect_logic.php" method="POST">
         <div class="mb-3 hidden">
                 <label class="block mb-2 font-bold text-gray-800" for="Fname">ID</label>
                 <input class="w-full  border-2 border-gray-400 pb-2 pt-2 pl-5 rounded outline-none focus:border-blue-400" name="id" id="id" type="text">
@@ -308,6 +308,28 @@
 
 <script>
     var tbl = document.querySelector("table");
+
+    // var icons = document.querySelectorAll(".update_icon")
+
+    // icons.forEach(Element =>{
+    //     console.Log("work");
+    // })
+
+    // console.log(icons);
+
+        // tbl.rows[1].cells[6].onclick = function () {
+        //     var test = tbl.rows.cells[3];
+        //     console.log(test);
+        // }
+
+
+    // tbl.addEventListener('click', e => {
+    //     if (e.target.matches('svg')) {
+    //         // console.log(e.target.parentElement.parentElement)
+    //         console.log(e.target.parent(document.querySelector("#tbl_firstname")))
+    //     }
+    // })
+
     for(var i = 1 ; i < tbl.rows.length; i++){
 
         tbl.rows[i].onclick = function (){
@@ -319,13 +341,16 @@
                 document.querySelector("#Email").value = this.cells[4].innerHTML
                 document.querySelector("#password").value = this.cells[5].innerHTML 
          }  
-
-
-        // tbl.rows[i].cells[6].onclick = function () {
-        //     console.log(tbl.rows[i].cells[3].innerHTML);
-        // }
-
     }
+
+
+    //     tbl.rows[i].cells[6].onclick = function () {
+    //         // console.log(tbl.rows[i].cells[3].innerHTML);
+    //         console.log();
+    //     }
+
+    // }
+
 
 </script>
 

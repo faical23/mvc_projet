@@ -136,6 +136,7 @@ if(isset($_POST["btn_update"]))
     $arr = ["LastName" => $Lname , "FirstName" => $Fname , "PhoneNumber" => $PhoneNumber , "Email" => $Email  , "password" => $Password ];
     $RG_VALIDE = VALIDE($table,$arr);
     if($RG_VALIDE){
+
         $exectution = new CRUD($table);
         $exectution->update($arr,$id);
         $_SESSION["Success update"] = ["Success update"];
